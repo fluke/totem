@@ -1,0 +1,9 @@
+<table>
+<tr><td>Admin: <%= @group.creator.email %></td></tr>
+<% @members.each do |member| %>
+<tr>
+	<td><%=member.email%> &nbsp;&nbsp;&nbsp;&nbsp; <%=link_to "Remove Member", group_remove_member_path(:member_id => member.id)%></td> 
+   
+	</tr>
+	<%end%>
+	</table>

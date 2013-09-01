@@ -1,0 +1,30 @@
+== README
+
+TOTEM developed by the folks at Sizr.
+Rails 4.0, Ruby 2.0
+
+
+Stuff to do ASAP:
+- Generate Phone_Number and Engagement models
+- Write tests
+- Install new relic and coverage
+- UI stuff
+
+Gemset:
+
+gem "will_paginate", git: 'https://github.com/mislav/will_paginate.git'
+gem 'devise', '3.0.0.rc'
+gem 'newrelic_rpm'
+gem 'validates_timeliness', '~> 3.0'
+gem 'simple_form'
+gem "nested_form"
+gem "rolify"
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.13.1'
+  gem 'factory_girl_rails'
+  gem "capybara"
+  gem "guard-rspec"
+  gem "database_cleaner", :group => :test
+  gem 'simplecov', :require => false, :group => :test
+end

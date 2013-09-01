@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+
+<h1>
+  <%= link_to @group.name, group_path(@group) %>
+</h1>
+
+<h2> Contacts </h2>
+<table>
+<% @contacts.each do |contact| %>
+  <tr>
+    <td><%= link_to contact.name, [contact.group, contact] %></td>
+    <td><%= "Added by #{User.find_by_id(contact.added_by).email}" %></td>
+    <td><%= contact.email_id %></td>
+    <td><%= contact.facebook_id %></td>
+    <td><%= contact.skype_id %></td>
+    <td><%= contact.twitter_id %></td>
+    <td><%= contact.engagement_count %></td>
+	<td><%= link_to 'Show', [contact.group, contact]%></td>
+    <td><%= link_to 'Edit', edit_group_contact_path(contact.group, contact) %></td>
+    <td><%= link_to 'Destroy', [contact.group, contact], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

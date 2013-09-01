@@ -1,0 +1,38 @@
+<h1>Listing contacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Group</th>
+      <th>Added by</th>
+      <th>Email</th>
+      <th>Facebook</th>
+      <th>Skype</th>
+      <th>Twitter</th>
+      <th>Engagement count</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.group_id %></td>
+        <td><%= contact.added_by %></td>
+        <td><%= contact.email_id %></td>
+        <td><%= contact.facebook_id %></td>
+        <td><%= contact.skype_id %></td>
+        <td><%= contact.twitter_id %></td>
+        <td><%= contact.engagement_count %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

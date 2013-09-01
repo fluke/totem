@@ -1,0 +1,7 @@
+Enter pass?
+<%= form_tag join_group_complete_path, :method => 'get', :id => "gs" do %>
+  <p>
+    <%= text_field_tag :pass, params[:pass] %>
+    <%= submit_tag "Ok", :name => nil %>
+  </p>
+<% end %>

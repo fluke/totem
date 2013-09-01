@@ -1,0 +1,25 @@
+<h1>Find a group</h1>
+
+
+<%= form_tag groups_path , :method => 'get', :id => "gs" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :class => "medium secondary btn", :name => nil %>
+  </p>
+<% end %>
+
+<div class="group_toggler">
+	
+
+<div id="groups">
+<%= render 'groups'%>
+</div>
+
+
+<br>
+<%if @groups%>
+<%= will_paginate @groups %>
+<%end%>
+</div>
+
+<%= link_to "Create a group, it's free!", new_group_path %>
