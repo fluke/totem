@@ -13,6 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20130831130305) do
 
+enable_extension "plpgsql"
+
   create_table "contacts", force: true do |t|
     t.string   "name"
     t.integer  "group_id"
