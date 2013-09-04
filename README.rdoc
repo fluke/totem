@@ -3,6 +3,15 @@
 TOTEM developed by the folks at Sizr.
 Rails 4.0, Ruby 2.0
 
+= 5th September 2013
+- Spiffied up the readme <br/>
+- Installed Newrelic(kartik) <br/>
+- Changed devise routes to avoid "/users/" <br/>
+- Added authorization/authentication for contacts <br/>
+- Added prettyURLS(friendly_id nested) for groups and contacts <br/>
+- *PENDING* Move common controller methods to application helper <br/>
+- *PENDING* Refactor groups controller <br/>
+
 
 Stuff to do ASAP:
 - Generate Phone_Number and Engagement models
@@ -10,21 +19,24 @@ Stuff to do ASAP:
 - Install new relic and coverage
 - UI stuff
 
-Gemset:
+Gemset:<br/>
+<br/>
+gem "will_paginate", git: 'https://github.com/mislav/will_paginate.git' <br/>
+gem 'devise', '3.0.0.rc'<br/>
+gem 'newrelic_rpm'<br/>
+gem 'validates_timeliness', '~> 3.0'<br/>
+gem 'simple_form'<br/>
+gem "nested_form"<br/>
+gem "rolify"<br/>
+gem 'friendly_id', '5.0.0.beta4'<br/>
+<br/><br/>
+group :development, :test do<br/>
+  gem 'rspec-rails', '~> 2.13.1'<br/>
+  gem 'factory_girl_rails'<br/>
+  gem "capybara"<br/>
+  gem "guard-rspec"<br/>
+  gem "database_cleaner", :group => :test<br/>
+  gem 'simplecov', :require => false, :group => :test<br/>
+end<br/>
+<br/><br/>
 
-gem "will_paginate", git: 'https://github.com/mislav/will_paginate.git'
-gem 'devise', '3.0.0.rc'
-gem 'newrelic_rpm'
-gem 'validates_timeliness', '~> 3.0'
-gem 'simple_form'
-gem "nested_form"
-gem "rolify"
-
-group :development, :test do
-  gem 'rspec-rails', '~> 2.13.1'
-  gem 'factory_girl_rails'
-  gem "capybara"
-  gem "guard-rspec"
-  gem "database_cleaner", :group => :test
-  gem 'simplecov', :require => false, :group => :test
-end

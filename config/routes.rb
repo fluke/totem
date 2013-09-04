@@ -12,7 +12,7 @@ Crm::Application.routes.draw do
   get "groups/:id/leave" => 'groups#leave', as: :leave_group
   get "groups/:id/join_complete" => 'groups#join_complete', as: :join_group_complete
   get "mygroups" => 'groups#mygroups', as: :my_groups
-  devise_for :users
+  devise_for :users, :path => ''
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

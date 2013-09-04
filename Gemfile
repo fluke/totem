@@ -42,6 +42,7 @@ gem 'validates_timeliness', '~> 3.0'
 gem 'simple_form'
 gem "nested_form"
 gem "rolify"
+gem 'friendly_id', '5.0.0.beta4'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.1'

@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
   end
   
   def mygroups
-    @groups = current_user.owned_groups
+    @groups = current_user.owned_groups.paginate(:per_page => 10, :page => params[:page])
   end
   
   def join
@@ -134,7 +134,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      @group = Group.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

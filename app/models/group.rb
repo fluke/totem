@@ -6,6 +6,12 @@ class Group < ActiveRecord::Base
   validates_length_of :name, :minimum => 3, :maximum => 80
   validates_length_of :password, :minimum => 6, :maximum => 18
   has_many :contacts
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
+  def should_generate_new_friendly_id?
+      new_record?
+    end
   
   def self.search(search)
       if search
