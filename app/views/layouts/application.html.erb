@@ -7,28 +7,61 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="navbar">
-		
-	<ul>
-		<li><%=link_to "Home", root_url %></li> | 
-		<%if user_signed_in?%>
-		<li><%=link_to "My Groups", my_groups_path %></li>
-		<%end%>
-		<li><%=link_to "Groups", groups_path %></li> | 
-		<%if user_signed_in?%>
-		<li><%=link_to "Signed in as #{current_user.email}. Log Out?", destroy_user_session_path, method: :delete%></li>
-		<%else%>
-		<li><%=link_to "Sign in", new_user_session_path %></li> | 
-		<li><%=link_to "Sign up", new_user_registration_path %></li> | 
-		<%end%>
-	</ul>
-	</div>
-<div class="fluidity">
+	<div class="navbar-wrapper">
+      
 
-<%if notice%><li class="warning alert"><%= notice %></li><%end%>
-<%if alert%><li class="danger alert"><%= alert %></li><%end%>
-<%= yield %>
-</div>
+	    <div class="navbar navbar-inverse navbar-static-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <%=link_to "Tracr", root_url, { class: 'navbar-brand' } %>
+	        </div>
+	        <div class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <%if user_signed_in?%>
+					<li><%=link_to "My Groups", my_groups_path %></li>
+				<%end%>
+				<li><%=link_to "Groups", groups_path %></li>
+				<%if user_signed_in?%>
+					<li><%=link_to "Signed in as #{current_user.email}. Log Out?", destroy_user_session_path, method: :delete%></li>
+				<%else%>
+					<li><%=link_to "Sign in", new_user_session_path %></li>
+					<li><%=link_to "Sign up", new_user_registration_path %></li>
+				<%end%>
+	            <!-- <li class="dropdown">
+	              <a href="./Carousel Template for Bootstrap_files/Carousel Template for Bootstrap.html" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+	              <ul class="dropdown-menu">
+	                <li><a href="./Carousel Template for Bootstrap_files/Carousel Template for Bootstrap.html">Action</a></li>
+	                <li><a href="./Carousel Template for Bootstrap_files/Carousel Template for Bootstrap.html">Another action</a></li>
+	                <li><a href="./Carousel Template for Bootstrap_files/Carousel Template for Bootstrap.html">Something else here</a></li>
+	                <li class="divider"></li>
+	                <li class="dropdown-header">Nav header</li>
+	                <li><a href="./Carousel Template for Bootstrap_files/Carousel Template for Bootstrap.html">Separated link</a></li>
+	                <li><a href="./Carousel Template for Bootstrap_files/Carousel Template for Bootstrap.html">One more separated link</a></li>
+	              </ul>
+	            </li> -->
+	          </ul>
+	        </div>
+	      </div>
+	    </div>
+
+    </div>
+
+    
+
+<%if current_page?('/') %>
+	<%= yield %>
+<%else%>
+	<div class="container">
+		<%if notice%><li class="warning alert"><%= notice %></li><%end%>
+		<%if alert%><li class="danger alert"><%= alert %></li><%end%>
+		<%= yield %>
+	</div>
+<%end%>
 
 </body>
 </html>

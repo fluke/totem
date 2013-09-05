@@ -1,4 +1,4 @@
-<%= form_for([@contact.group, @contact]) do |f| %>
+<%= simple_form_for([@contact.group, @contact]) do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -11,32 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.input :name, :required => true, :autofocus => true, label: 'Contact Name', input_html: {class: 'form-control'} %>
   </div>
 
-  <div class="field">
-    <%= f.label :email_id %><br>
-    <%= f.text_field :email_id %>
+  <div class="form-group">
+    <%= f.input :email_id, :required => false, input_html: {class: 'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.label :facebook_id %><br>
-    <%= f.text_field :facebook_id %>
+  <div class="form-group">
+    <%= f.input :facebook_id, :required => false, input_html: {class: 'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.label :skype_id %><br>
-    <%= f.text_field :skype_id %>
+  <div class="form-group">
+    <%= f.input :skype_id, :required => false, input_html: {class: 'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.label :twitter_id %><br>
-    <%= f.text_field :twitter_id %>
+  <div class="form-group">
+    <%= f.input :twitter_id, :required => false, input_html: {class: 'form-control'} %>
   </div>
-  <div class="field">
+  <!-- <div class="form-group">
     <%= f.label :engagement_count %><br>
     <%= f.number_field :engagement_count %>
-  </div>
-  <div class="actions">
+  </div> -->
+  <div class="form-actions">
     <%= f.submit %>
   </div>
 <% end %>

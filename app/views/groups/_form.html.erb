@@ -1,4 +1,4 @@
-<%= form_for(@group) do |f| %>
+<%= simple_form_for(@group) do |f| %>
   <% if @group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div style="width:600px;">
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, :class=>"input text"%>
+  <div class="form-group">
+    <%= f.input :name, :required => true, label: 'Group Name', :autofocus => true, input_html: {:class => 'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password, :class=>"input password", :type=>"password" %>
+
+  <div class="form-group">
+    <%= f.input :password, :required => true, input_html: {:class => 'form-control'} %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create Group" %>
   </div>
-</div>
+
+
 <% end %>

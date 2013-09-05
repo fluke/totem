@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
  */
+
+
+.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}
+.carousel {
+margin-top: -90px;
+}
