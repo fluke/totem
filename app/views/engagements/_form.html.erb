@@ -1,0 +1,17 @@
+<%= simple_form_for(@engagement) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <%= f.input :description, input_html: {class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :engage_time, input_html: {class: 'form-control engagetime'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :engage_date, input_html: {class: 'form-control engagedate'} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

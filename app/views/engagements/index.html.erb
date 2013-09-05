@@ -1,0 +1,31 @@
+<h1>Listing engagements</h1>
+
+<table class="table engagements">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Engage time</th>
+      <th>Engage date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @engagements.each do |engagement| %>
+      <tr class="<%= datepassed?(engagement) %>">
+        <td><%= engagement.description %></td>
+        <td><%= engagement.engage_time %></td>
+        <td><%= engagement.engage_date %></td>
+        <td><%= link_to 'Show', engagement %></td>
+        <td><%= link_to 'Edit', edit_engagement_path(engagement) %></td>
+        <td><%= link_to 'Destroy', engagement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Engagement', new_engagement_path %>
