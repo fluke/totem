@@ -3,6 +3,12 @@
 TOTEM developed by the folks at Sizr.
 Rails 4.0, Ruby 2.0
 
+= 6th September 2013
+- Added dependant: :destroy to all has_many
+- Made Phone model
+- Made Engagement model
+- Added some validation to both
+
 = 5th September 2013 (later on)
 - Added Less to Assets pipeline
 - Added Bootstrap

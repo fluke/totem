@@ -5,7 +5,7 @@ class Group < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_length_of :name, :minimum => 3, :maximum => 80
   validates_length_of :password, :minimum => 6, :maximum => 18
-  has_many :contacts
+  has_many :contacts, :dependent => :destroy
   extend FriendlyId
   friendly_id :name, use: :slugged
   
