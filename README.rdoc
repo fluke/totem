@@ -3,6 +3,13 @@
 TOTEM developed by the folks at Sizr.
 Rails 4.0, Ruby 2.0
 
+= 5th September 2013 (later on)
+- Added Less to Assets pipeline
+- Added Bootstrap
+- Cobbled together a index page
+- Changed all the forms
+- Other UI, mostly the tables for Contacts and Groups have no styles as of now
+
 = 5th September 2013
 - Spiffied up the readme 
 - Installed Newrelic(kartik) 
@@ -28,6 +35,7 @@ Gemset:
   gem 'simple_form'
   gem "nested_form"
   gem "rolify"
+  gem "less-rails"
   gem 'friendly_id', '5.0.0.beta4'
 
   group :development, :test do
