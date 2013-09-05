@@ -1,5 +1,9 @@
 Crm::Application.routes.draw do
 
+  resources :engagements
+
+  resources :phones
+
   resources :groups do
     resources :contacts
   end

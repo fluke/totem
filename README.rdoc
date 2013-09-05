@@ -3,7 +3,11 @@
 TOTEM developed by the folks at Sizr.
 Rails 4.0, Ruby 2.0
 
-= 6th September 2013
+= 6th September 2013 (2:53)
+- Added scaffolds for both models
+- Made the color coding system for the index controller of Engagements
+
+= 6th September 2013 (1:03)
 - Added dependant: :destroy to all has_many
 - Made Phone model
 - Made Engagement model
