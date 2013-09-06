@@ -16,7 +16,7 @@
     <% @engagements.each do |engagement| %>
       <tr class="<%= datepassed?(engagement) %>">
         <td><%= engagement.description %></td>
-        <td><%= engagement.engage_time %></td>
+        <td><%= engagement.engage_time.strftime("%I:%M%p") %></td>
         <td><%= engagement.engage_date %></td>
         <td><%= link_to 'Show', engagement %></td>
         <td><%= link_to 'Edit', edit_engagement_path(engagement) %></td>
