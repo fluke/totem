@@ -1,3 +1,7 @@
+<% content_for(:side_bar) do %>
+    <%= render :partial => "/shared/sidebar" %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -13,16 +17,18 @@
     <td><%= link_to contact.name, [contact.group, contact] %></td>
     <td><%= "Added by #{User.find_by_id(contact.added_by).email}" %></td>
     <td><%= contact.email_id %></td>
-    <td><%= contact.facebook_id %></td>
-    <td><%= contact.skype_id %></td>
-    <td><%= contact.twitter_id %></td>
-    <td><%= contact.engagement_count %></td>
+    <%if contact.phones %><td>
+	<%= contact.phones.first%>
+	</td><%end%>
 	<td><%= link_to 'Show', [contact.group, contact]%></td>
     <td><%= link_to 'Edit', edit_group_contact_path(contact.group, contact) %></td>
     <td><%= link_to 'Destroy', [contact.group, contact], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
+<%= link_to 'New', new_group_contact_path(@group)%> |
+<% if check_group_admin? %>
 <%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Destroy this group', group_path(@group), method: :delete, :message => "This will delete everything. Ok?" %> |
+<%end%>
 <%= link_to 'Back', groups_path %>

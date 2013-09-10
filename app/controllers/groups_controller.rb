@@ -22,7 +22,9 @@ class GroupsController < ApplicationController
   end
   
   def mygroups
-    @groups = current_user.owned_groups.paginate(:per_page => 10, :page => params[:page])
+    @belong_groups = current_user.groups.uniq
+    @groups = current_user.owned_groups
+    #.paginate(:per_page => 10, :page => params[:page])
   end
   
   def join
@@ -70,12 +72,13 @@ if @group.password == params[:pass]
   @group.users << current_user
   else
     flash[:notice] = "Wrong password."
-    redirect_to groups_url
+    redirect_to groups_url and return
   end
 else
   flash[:notice] = "Log in please."
-  redirect_to groups_url
+  redirect_to groups_url and return
 end
+redirect_to groups_url and return
 end
   
   # GET /groups/new

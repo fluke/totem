@@ -56,12 +56,19 @@
 <%if current_page?('/') %>
 	<%= yield %>
 <%else%>
-	<div class="container">
-		<%if notice%><li class="warning alert"><%= notice %></li><%end%>
-		<%if alert%><li class="danger alert"><%= alert %></li><%end%>
+	<div class="container spl">
+		<%if notice%><li class="alert alert-info"><%= notice %></li><%end%>
+		<%if alert%><li class="alert alert-error"><%= alert %></li><%end%>
 		<%= yield %>
 	</div>
 <%end%>
+
+<%if content_for(:side_bar)%>
+<div id="side-content">
+    <%= yield(:side_bar) %>
+</div>
+<%end%>
+
 
 </body>
 </html>

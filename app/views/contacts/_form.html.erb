@@ -1,4 +1,5 @@
-<%= simple_form_for([@contact.group, @contact]) do |f| %>
+
+<%= simple_nested_form_for([@contact.group, @contact]) do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -11,10 +12,21 @@
     </div>
   <% end %>
 
+
+
   <div class="form-group">
     <%= f.input :name, :required => true, :autofocus => true, label: 'Contact Name', input_html: {class: 'form-control'} %>
   </div>
 
+<div class="form-group">
+	<%= f.fields_for :phones do |op| %>
+	  <%= op.text_field :phone_no %>
+	  <%= op.link_to_remove "&#10006; Remove".html_safe %>
+	<% end %>
+
+
+	<p><%= f.link_to_add "&#10010; &nbsp; Add phone number".html_safe, :phones, :class => "add_phone" %></p>
+</div>
   <div class="form-group">
     <%= f.input :email_id, :required => false, input_html: {class: 'form-control'} %>
   </div>

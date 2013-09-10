@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130905194933) do
+ActiveRecord::Schema.define(version: 20130910210918) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -73,6 +76,7 @@ ActiveRecord::Schema.define(version: 20130905194933) do
     t.string   "phone_no"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contact_id"
   end
 
   create_table "users", force: true do |t|

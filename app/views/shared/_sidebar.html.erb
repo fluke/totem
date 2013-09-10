@@ -1,0 +1,15 @@
+<%if @group%>
+<%=	image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(@group.creator.email)}", :alt => "#{@group.creator.email}", :class => 'avatar')  %>
+
+
+<% @group.users.each do |user|%>
+<%= image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(user.email)}", :alt => "#{user.email}", :class => 'avatar') %>
+<%end%>
+
+<br/><br/><br/>
+
+<% @group.contacts.order("created_at DESC").first(5).each do |ss|%>
+<%= link_to "#{User.find(ss.added_by).email} Added #{ss.name} #{time_ago_in_words(ss.created_at)} ago", [ss.group, ss]%>
+<%end%>
+
+<%end%>

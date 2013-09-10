@@ -1,7 +1,15 @@
 == README
 
-TOTEM developed by the folks at Sizr.
+TRACR (Old: TOTEM) developed by the folks at Sizr.
 Rails 4.0, Ruby 2.0
+
+= 11th September 2013 (3:23)
+- Changed the UI to include a sidebar partial for anything group and below. @group is a must for any page with a sidebar.
+- Added the phone sub model and a few migrations in order to bring me and kartik to parity. Added a contact_id to phone number
+- Added nested attributes and the nested_form gem asset pipeline. Also put it through permits. Need to test once although it looks like it works already.
+- Added MD5 hashing to gravatar in config/environments. Major refactor needed.
+- There's a minor bug with me having to make a loop to get the first element of the Phone number sub object. Will look into this soon.
+
 
 = 6th September 2013 (2:53)
 - Added scaffolds for both models

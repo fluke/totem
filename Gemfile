@@ -46,7 +46,8 @@ gem 'simple_form'
 gem "nested_form"
 gem "rolify"
 gem 'friendly_id', '5.0.0.beta4'
-
+gem "bullet", :group => "development"
+  
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.1'
   gem 'factory_girl_rails'

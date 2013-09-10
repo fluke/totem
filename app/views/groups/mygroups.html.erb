@@ -1,9 +1,30 @@
-<h1>My Groups</h1>
+<h1>Groups I own</h1>
 <div id="groups1">
 <%= render 'groups'%>
 </div>
 
 
+<div id="groups2">
+	<h1>Groups I belong to</h1>
+	<table class="table">
+
+
+
+	  <tbody>
+	<%if @belong_groups%>
+	    <% @belong_groups.each do |group| %>
+	      <tr>
+	        <td><%= link_to group.name, group %></td>
+	        <td><%= group.users.count + 1 %></td>
+
+	        <%if group.creator == current_user %><td><%= link_to 'Edit', edit_group_path(group) %></td>
+	        <td><%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></td><%end%>
+	      </tr>
+	    <% end %>
+	<%end%>
+	  </tbody>
+	</table>
+</div>
 <br>
 
 

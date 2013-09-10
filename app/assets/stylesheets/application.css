@@ -24,7 +24,7 @@
 }
 
 tr a {
-	color: white;
+	color: blue;
 }
 tr.coming {
 	background: rgb(35,177,75);
@@ -38,3 +38,6 @@ tr.past {
 	background: rgb(177,35,35);
 	color: white;
 }
+#side-content{float:left; width:200px; background-color:gray; height:100%;}
+.spl{float:right; width:970px;}
+.holder_main{min-height:300px; overflow:auto;}
