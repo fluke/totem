@@ -15,6 +15,8 @@ class ContactsController < ApplicationController
   # GET /contacts/1.json
   def show
     check_member_or_admin_of_group?
+    @engagement = Engagement.new
+    @engagement.contact_id = @contact.id
   end
 
   # GET /contacts/new

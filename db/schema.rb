@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130910210918) do
+ActiveRecord::Schema.define(version: 20130912144437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20130910210918) do
     t.string   "facebook_id"
     t.string   "skype_id"
     t.string   "twitter_id"
-    t.integer  "engagement_count"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "engagements_count", default: 0
   end
 
   add_index "contacts", ["slug"], name: "index_contacts_on_slug", using: :btree
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20130910210918) do
     t.date     "engage_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contact_id"
   end
 
   create_table "friendly_id_slugs", force: true do |t|

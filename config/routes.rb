@@ -3,7 +3,9 @@ Crm::Application.routes.draw do
   resources :engagements
 
   resources :groups do
-    resources :contacts
+    resources :contacts do
+      resources :engagements
+    end
   end
 
   get "home/index"

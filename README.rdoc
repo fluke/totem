@@ -3,6 +3,18 @@
 TRACR (Old: TOTEM) developed by the folks at Sizr.
 Rails 4.0, Ruby 2.0
 
+= 12th September 2013 (9:14)
+- Engagements are now a triply nested route(route never shows though), in order to prevent the hidden field security risk
+- Engagements all spiffy and working. I'm good at this.
+
+= 12th September 2013 (8:18)
+- Added engagements_count as a counter cache to count engagements (SCHEMA NOTE: IT USED TO BE ENGAGEMENT_COUNT NOW ITS ENGAGEMENTS_COUNT)
+- Added Engagements sidebar. (Please style this, it's at the bottom now)
+- So far, only add engagement and show work, in the same sidebar. Need to add destroy/update options soon.
+- Must test!!!11!!11
+- Phones nested thing works well
+- Potential security risk with a hidden field
+- Remove duplicate alert instances please!
 
 = 12th September 2013 (5:16)
 - Swapped nested fields gem for cocoon

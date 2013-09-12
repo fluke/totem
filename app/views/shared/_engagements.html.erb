@@ -1,0 +1,27 @@
+<h1>Engagements</h1><div class="engagements-bar">
+	<% @contact.engagements.order("id DESC").each do |engagement|%>
+	<%= engagement.description %> 
+     <%= engagement.engage_time %>
+     <%= engagement.engage_date %> <%= link_to "REMOVE", [@contact.group, @contact, engagement], method: :delete, data: { confirm: 'Are you sure?' }%><br/>
+	<%end%>
+	<br/><br/><br/>
+	
+	
+	<%= simple_form_for([@contact.group, @engagement.contact, @engagement]) do |f| %>
+	  <%= f.error_notification %>
+      
+	  <div class="form-group">
+	    <%= f.input :description, input_html: {class: 'form-control'} %>
+	  </div>
+	  <div class="form-group">
+	    <%= f.input :engage_time, input_html: {class: 'form-control engagetime'} %>
+	  </div>
+	  <div class="form-group">
+	    <%= f.input :engage_date, input_html: {class: 'form-control engagedate'} %>
+	  </div>
+
+	  <div class="form-actions">
+	    <%= f.button :submit %>
+	  </div>
+	<% end %>
+</div>
