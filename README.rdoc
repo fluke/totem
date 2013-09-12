@@ -3,6 +3,13 @@
 TRACR (Old: TOTEM) developed by the folks at Sizr.
 Rails 4.0, Ruby 2.0
 
+
+= 12th September 2013 (5:16)
+- Swapped nested fields gem for cocoon
+- Fixed first object bug with a regular workaround
+- Engagements, tests, and all automated/push emails seem like the only things left
+- Need to add a quick "Find contact panel on group homepage" - Do this using the same tech i used to make find groups. It's ajax, pagination and js.
+
 = 11th September 2013 (3:23)
 - Changed the UI to include a sidebar partial for anything group and below. @group is a must for any page with a sidebar.
 - Added the phone sub model and a few migrations in order to bring me and kartik to parity. Added a contact_id to phone number

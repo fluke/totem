@@ -43,7 +43,7 @@ gem 'devise', '3.0.0.rc'
 gem 'newrelic_rpm'
 gem 'validates_timeliness', '~> 3.0'
 gem 'simple_form'
-gem "nested_form"
+gem "cocoon"
 gem "rolify"
 gem 'friendly_id', '5.0.0.beta4'
 gem "bullet", :group => "development"

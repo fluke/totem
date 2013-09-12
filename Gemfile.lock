@@ -43,6 +43,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    cocoon (1.2.0)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -108,7 +109,6 @@ GEM
     mini_portile (0.5.0)
     minitest (4.7.5)
     multi_json (1.7.9)
-    nested_form (0.3.2)
     newrelic_rpm (3.6.5.130)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
@@ -214,6 +214,7 @@ PLATFORMS
 DEPENDENCIES
   bullet
   capybara
+  cocoon
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise (= 3.0.0.rc)
@@ -223,7 +224,6 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
-  nested_form
   newrelic_rpm
   pg
   rails (= 4.0.0)

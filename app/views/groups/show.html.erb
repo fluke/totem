@@ -18,7 +18,9 @@
     <td><%= "Added by #{User.find_by_id(contact.added_by).email}" %></td>
     <td><%= contact.email_id %></td>
     <%if contact.phones %><td>
-	<%= contact.phones.first%>
+	<% contact.phones.find(:all, :limit =>1).each do |cp| %>
+	<%= cp.phone_no%>
+	<%end%>
 	</td><%end%>
 	<td><%= link_to 'Show', [contact.group, contact]%></td>
     <td><%= link_to 'Edit', edit_group_contact_path(contact.group, contact) %></td>

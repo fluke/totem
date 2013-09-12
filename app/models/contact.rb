@@ -1,7 +1,7 @@
 class Contact < ActiveRecord::Base
   belongs_to :group
   has_many :phones, :dependent => :destroy
-  accepts_nested_attributes_for :phones, :allow_destroy => true
+  accepts_nested_attributes_for :phones, :reject_if => :all_blank, :allow_destroy => true
   has_many :engagements, :dependent => :destroy
   
   validates_presence_of :name
