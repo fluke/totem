@@ -2,16 +2,9 @@
     <%= render :partial => "/shared/sidebar" %>
 <% end %>
 
-<p id="notice"><%= notice %></p>
-
-<p>
-
-<h1>
-  <%= link_to @group.name, group_path(@group) %>
-</h1>
 
 <h2> Contacts </h2>
-<table>
+<table class="table">
 <% @contacts.each do |contact| %>
   <tr>
     <td><%= link_to contact.name, [contact.group, contact] %></td>

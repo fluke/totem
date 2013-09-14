@@ -1,15 +1,35 @@
 <%if @group%>
-<%=	image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(@group.creator.email)}", :alt => "#{@group.creator.email}", :class => 'avatar')  %>
+<h1>
+  <%= link_to @group.name, group_path(@group) %>
+</h1>
 
+<div class="group-members">
+	<%=	image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(@group.creator.email)}", :alt => "#{@group.creator.email}", :class => 'avatar group-member group-owner')  %>
 
-<% @group.users.each do |user|%>
-<%= image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(user.email)}", :alt => "#{user.email}", :class => 'avatar') %>
-<%end%>
+	<% counter = 0 %>
+	<% @group.users.each do |user|%>
+		<% if counter<3 %>
+			<%= image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(user.email)}", :alt => "#{user.email}", :class => 'avatar group-member') %>
+			<% counter += 1 %>
+		<%else%>
+			<% counter += 1 %>
+		<%end%>
+	<%end%>
 
-<br/><br/><br/>
+	<% if counter >= 3 %>
+	<div class="group-member group-number">
+		<%=counter-3%>
+	</div>
+	<%end%>
+</div>
 
+<br/><br/>
+<h3>Group Activity</h3>
+<ul class="group-activity">
 <% @group.contacts.order("created_at DESC").first(5).each do |ss|%>
-<%= link_to "#{User.find(ss.added_by).email} Added #{ss.name} #{time_ago_in_words(ss.created_at)} ago", [ss.group, ss]%>
+	<li>
+	<%= link_to "#{User.find(ss.added_by).email} Added #{ss.name} #{time_ago_in_words(ss.created_at)} ago", [ss.group, ss]%></li>
 <%end%>
+</ul>
 
 <%end%>
