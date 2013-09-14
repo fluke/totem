@@ -42,6 +42,7 @@ var do_on_load = function() {
 		console.log("Index "+phone_number);
 	});
 
+
   });
 
   $('form').on('cocoon:after-remove', function(e, insertedItem) {
@@ -54,26 +55,8 @@ var do_on_load = function() {
 		console.log("Index "+phone_number);
 	});
 
+
   });
-
-  function getDocHeight() {
-	    var D = document;
-	    return Math.max(
-	        D.body.scrollHeight, D.documentElement.scrollHeight,
-	        D.body.offsetHeight, D.documentElement.offsetHeight,
-	        D.body.clientHeight, D.documentElement.clientHeight
-	    );
-  }
-
-  var sidebar_height = function() {
-  	$('#side-content').css("height",(getDocHeight()-$('.navbar-wrapper').outerHeight()));
-  }
-
-	sidebar_height();
-
-	$(window).resize(function() {
-		sidebar_height();
-	});
 
 }
 

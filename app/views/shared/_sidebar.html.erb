@@ -6,19 +6,15 @@
 <div class="group-members">
 	<%=	image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(@group.creator.email)}", :alt => "#{@group.creator.email}", :class => 'avatar group-member group-owner')  %>
 
-	<% counter = 0 %>
-	<% @group.users.each do |user|%>
-		<% if counter<3 %>
-			<%= image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(user.email)}", :alt => "#{user.email}", :class => 'avatar group-member') %>
-			<% counter += 1 %>
-		<%else%>
-			<% counter += 1 %>
-		<%end%>
+	<% @group.users.first(3).each do |user|%>
+		
+		<%= image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(user.email)}", :alt => "#{user.email}", :class => 'avatar group-member') %>		
+	
 	<%end%>
 
-	<% if counter >= 3 %>
+	<% if @group.users.count >= 3 %>
 	<div class="group-member group-number">
-		<%=counter-3%>
+		<%= @group.users.count - 3 %>
 	</div>
 	<%end%>
 </div>
