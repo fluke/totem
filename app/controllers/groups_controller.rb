@@ -1,13 +1,13 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy, :join, :join_complete, :leave, :members, :remove_member]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :join, :join_complete, :leave, :members, :remove_member, :mygroups]
-  before_action :check_group_admin_controller, only: [:edit, :update, :destroy, :members, :remove_member]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :join, :join_complete, :leave, :members, :remove_member, :tags]
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :join, :join_complete, :leave, :members, :remove_member, :mygroups, :tags]
+  before_action :check_group_admin_controller, only: [:edit, :update, :destroy, :members, :remove_member, :tags]
 
   # GET /groups
   # GET /groups.json
   def index
     if params[:search]
-    @groups = Group.search((params[:search]).to_s.downcase).paginate(:per_page => 10, :page => params[:page])
+    @groups = Group.search((params[:search]).to_s.downcase)
    end
   end
 
@@ -16,6 +16,14 @@ class GroupsController < ApplicationController
   def show
     if @group.users.include?(current_user) || @group.creator == current_user
       @contacts = @group.contacts.search((params[:search]).to_s.downcase)
+    else
+    redirect_to join_group_path  
+    end
+  end
+  
+  def tags
+     if @group.users.include?(current_user) || @group.creator == current_user
+    @contacts = @group.contacts.tagged_with(params[:tag].to_s)
     else
     redirect_to join_group_path  
     end

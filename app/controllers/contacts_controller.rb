@@ -88,7 +88,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:name, :email_id, :facebook_id, :skype_id, :twitter_id, :phones_attributes => [:id, :phone_no, :_destroy])
+      params.require(:contact).permit(:name, :email_id, :facebook_id, :skype_id, :twitter_id, :tag_list, :phones_attributes => [:id, :phone_no, :_destroy])
     end
     def set_grp
       @group = Group.friendly.find(params[:group_id])

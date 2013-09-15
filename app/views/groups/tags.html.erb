@@ -2,22 +2,17 @@
     <%= render :partial => "/shared/sidebar" %>
 <% end %>
 
-<h1>Listing contacts</h1>
-
 <table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Group</th>
       <th>Added by</th>
       <th>Email</th>
       <th>Facebook</th>
       <th>Skype</th>
       <th>Twitter</th>
       <th>Engagement count</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Tags</th>
     </tr>
   </thead>
 
@@ -25,18 +20,14 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td><%= contact.name %></td>
-        <td><%= contact.group_id %></td>
-        <td><%= contact.added_by %></td>
+        <td><%= User.find(contact.added_by).email %></td>
         <td><%= contact.email_id %></td>
         <td><%= contact.facebook_id %></td>
         <td><%= contact.skype_id %></td>
         <td><%= contact.twitter_id %></td>
         <td><%= contact.engagements_count %></td>
-
+        <td><%= raw contact.tag_list.map { |t| link_to t, group_tag_path(@group, t) }.join(', ') %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-

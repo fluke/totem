@@ -3,8 +3,9 @@ class Contact < ActiveRecord::Base
   has_many :phones, :dependent => :destroy
   accepts_nested_attributes_for :phones, :reject_if => :all_blank, :allow_destroy => true
   has_many :engagements, :dependent => :destroy
-  
+  default_scope order('name')
   validates_presence_of :name
+  acts_as_taggable
   validates_format_of :email_id, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Bad Email format"
   validates_uniqueness_of :name
   validates_length_of :name, :minimum => 3, :maximum => 80

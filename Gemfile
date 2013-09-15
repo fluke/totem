@@ -46,8 +46,8 @@ gem 'simple_form'
 gem "cocoon"
 gem "rolify"
 gem 'friendly_id', '5.0.0.beta4'
-gem "bullet", :group => "development"
-  
+gem 'acts-as-taggable-on'
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.1'
   gem 'factory_girl_rails'
@@ -55,6 +55,10 @@ group :development, :test do
   gem "guard-rspec"
   gem "database_cleaner", :group => :test
   gem 'simplecov', :require => false, :group => :test
+end
+
+group :development do
+  gem "bullet"
 end
 
 # Use ActiveModel has_secure_password

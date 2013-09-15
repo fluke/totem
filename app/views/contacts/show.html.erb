@@ -35,6 +35,8 @@
   <strong>Engagement count:</strong>
   <%= @contact.engagements_count %>
 </p>
-
+<p><strong>Tags</strong>
+	<%= raw @contact.tag_list.map { |t| link_to t, group_tag_path(@group, t) }.join(', ') %>
+</p>
 	<%=render "shared/engagements"%>
 
