@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     if params[:search]
-    @groups = Group.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
+    @groups = Group.search((params[:search]).to_s.downcase).paginate(:per_page => 10, :page => params[:page])
    end
   end
 
@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     if @group.users.include?(current_user) || @group.creator == current_user
-      @contacts = @group.contacts
+      @contacts = @group.contacts.search((params[:search]).to_s.downcase)
     else
     redirect_to join_group_path  
     end

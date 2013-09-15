@@ -16,5 +16,12 @@ class Contact < ActiveRecord::Base
        new_record?
    end
   
+   def self.search(search)
+     if search
+       where('lower(name) LIKE ?', "%#{search}%")
+     else
+       scoped
+     end
+   end
   
 end

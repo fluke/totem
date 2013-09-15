@@ -18,45 +18,29 @@
 
 
 var do_on_load = function() { 
+	
+	  
   	$('#search').keyup(function () {
 	  	 $.get($("#gs").attr("action"), $("#gs").serialize(), null, "script");
 		  return false;
-	});
-	$('#search').keyup(function (){
-	if(!$(this).val()){
-		$('#groups').css( "display", "none" );
-	}
-	else
-	{
-	   $('#groups').css( "display", "block" );	
-	}
-	});
+});
 
-  $('form').on('cocoon:after-insert', function(e, insertedItem) {
-
-    phone_number = 0;
-
-	$('.tel.optional:not(.string)').delay(100).each(function(i,e){
-		phone_number+=1;
-		$(e).text("Phone \#"+phone_number);
-		console.log("Index "+phone_number);
-	});
+	$('#search').keyup(function () {
+	  	 $.get($("#gs2").attr("action"), $("#gs2").serialize(), null, "script");
+		  return false;
+});
 
 
-  });
+$('#search').keyup(function (){
+if(!$(this).val()){
+	$('#groups').css( "display", "none" );
+}
+else
+{
+   $('#groups').css( "display", "block" );	
+}
+});
 
-  $('form').on('cocoon:after-remove', function(e, insertedItem) {
-
-    phone_number = 0;
-
-	$('.tel.optional:not(.string)').delay(100).each(function(i,e){
-		phone_number+=1;
-		$(e).text("Phone \#"+phone_number);
-		console.log("Index "+phone_number);
-	});
-
-
-  });
 
 }
 

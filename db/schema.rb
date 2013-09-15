@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130912144437) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "contacts", force: true do |t|
     t.string   "name"
     t.integer  "group_id"
@@ -36,6 +39,7 @@ ActiveRecord::Schema.define(version: 20130912144437) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "contact_id"
+    t.string   "reaction"
   end
 
   create_table "friendly_id_slugs", force: true do |t|

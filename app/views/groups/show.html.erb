@@ -4,23 +4,16 @@
 
 
 <h2> Contacts </h2>
-<table class="table">
-<% @contacts.each do |contact| %>
-  <tr>
-    <td><%= link_to contact.name, [contact.group, contact] %></td>
-    <td><%= "Added by #{User.find_by_id(contact.added_by).email}" %></td>
-    <td><%= contact.email_id %></td>
-    <%if contact.phones %><td>
-	<% contact.phones.find(:all, :limit =>1).each do |cp| %>
-	<%= cp.phone_no%>
-	<%end%>
-	</td><%end%>
-	<td><%= link_to 'Show', [contact.group, contact]%></td>
-    <td><%= link_to 'Edit', edit_group_contact_path(contact.group, contact) %></td>
-    <td><%= link_to 'Destroy', [contact.group, contact], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+<%= form_tag group_path(@group) , :method => 'get', :id => "gs2" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 <% end %>
-</table>
+
+ <div id="contacts"><%= render 'contacts' %></div>
+
 <%= link_to 'New', new_group_contact_path(@group)%> |
 <% if check_group_admin? %>
 <%= link_to 'Edit', edit_group_path(@group) %> |
